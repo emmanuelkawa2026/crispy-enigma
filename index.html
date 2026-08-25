@@ -1,1 +1,111 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KAWA UGANDA - Mobile Money</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#f5f7fb}header{background:#16a34a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between} .box{background:#fff;margin:10px;padding:15px;border-radius:16px;box-shadow:0 4px 15px #0001} .btn{background:#16a34a;color:#fff;padding:14px;border:none;border-radius:12px;width:100%;font-weight:800;font-size:16px} input{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px} .momo{display:flex;gap:10px;margin:12px 0} .mtn{background:#ffcc00;padding:13px;flex:1;text-align:center;border-radius:12px;font-weight:800} .airtel{background:#ff0000;color:#fff;padding:13px;flex:1;text-align:center;border-radius:12px;font-weight:800}</style></head><body><header><b>🛵 KAWA</b><span style="background:#fff;color:#16a34a;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800">MTN MoMo LIVE</span></header><div class="box"><h3>🚚 Fast Delivery 30min Kampala</h3><input id="from" placeholder="Pickup - e.g. Nakawa"><input id="to" placeholder="Drop - e.g. Kira Road"><input id="item" placeholder="What to deliver?"><div style="display:flex;gap:8px;margin:10px 0"><div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Price</small><br><b style="color:#16a34a;font-size:22px" id="price">UGX 8,500</b></div><div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Time</small><br><b>30 min</b></div></div><p style="font-weight:800">💳 Pay With:</p><div class="momo"><div class="mtn" onclick="pay('MTN')">MTN MoMo</div><div class="airtel" onclick="pay('Airtel')">Airtel Money</div></div><button class="btn" onclick="book()">📲 BOOK ON WHATSAPP</button><button class="btn" style="background:#facc15;color:#000;margin-top:8px" onclick="pay('MTN')">💰 PAY NOW MoMo</button><p style="font-size:11px;text-align:center;margin-top:6px;color:#666">Pay to: 0792664825 - KAWA UGANDA</p></div><script>function book(){let f=document.getElementById('from').value||'Kampala';let t=document.getElementById('to').value||'Dest';let p=document.getElementById('price').innerText;window.open('https://wa.me/256792408497?text=KAWA ORDER%0AFrom:'+f+'%0ATo:'+t+'%0APrice:'+p+'%0APay to 0792664825','_blank')}function pay(n){let p=document.getElementById('price').innerText;alert(n+' Payment '+p+' Send to 0792664825 - KAWA Dial '+(n=='MTN'?'*165*1*1#':'*185*1#'));book()}document.getElementById('from').addEventListener('input',()=>{document.getElementById('price').innerText='UGX '+(Math.floor(Math.random()*6000+4500))})</script></body></html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAWA UGANDA - #1 Delivery App</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f7fb}
+header{background:#111;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo{font-weight:900;font-size:20px;color:#16a34a}
+.badge{background:#16a34a;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px}
+.hero{background:linear-gradient(135deg,#16a34a,#0f7a38);color:#fff;padding:25px 16px;text-align:center}
+.hero h1{font-size:28px;line-height:1.1}
+.hero p{opacity:.9;margin:8px 0 14px}
+.hero-btn{background:#ffcc00;color:#000;padding:12px 22px;border-radius:30px;font-weight:900;border:none}
+.container{max-width:480px;margin:0 auto}
+.card{background:#fff;margin:12px;border-radius:18px;padding:16px;box-shadow:0 6px 20px #0001}
+input,select{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e5e7eb;border-radius:12px;font-size:15px}
+.price-box{display:flex;gap:10px}
+.price-box div{flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center}
+.pay-grid{display:flex;gap:10px;margin:12px 0}
+.mtn{background:#ffcc00;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
+.airtel{background:#ff0000;color:#fff;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
+.btn-green{background:#16a34a;color:#fff;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin:6px 0}
+.btn-yellow{background:#ffcc00;color:#000;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin:6px 0}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.srv{background:#f9fafb;border:1px solid #eee;border-radius:12px;padding:12px;text-align:center}
+.steps{display:flex;gap:10px;overflow:auto}
+.step{min-width:130px;background:#f9fafb;border-radius:12px;padding:12px;text-align:center}
+footer{background:#111;color:#999;padding:20px;text-align:center;font-size:13px;margin-top:20px}
+</style></head>
+<body>
+<div class="container">
+<header><div class="logo">🛵 KAWA</div><div class="badge">LIVE KAMPALA</div></header>
+
+<div class="hero">
+<h1>Fast Delivery in 30 Mins</h1>
+<p>Kampala's cheapest boda delivery - Pay with MTN MoMo</p>
+<button class="hero-btn" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">BOOK NOW ↓</button>
+</div>
+
+<div class="card" id="book">
+<h3>📍 Book Your Delivery</h3>
+<input id="from" placeholder="Pickup - e.g. Nakawa Market">
+<input id="to" placeholder="Drop - e.g. Kira Road">
+<input id="item" placeholder="What to deliver? e.g. Documents, Food">
+<div class="price-box">
+<div><small>Price</small><br><b id="price" style="color:#16a34a;font-size:20px">UGX 8,500</b></div>
+<div><small>Time</small><br><b>30 min</b></div>
+</div>
+<p style="margin-top:12px;font-weight:800">💳 Pay With Mobile Money:</p>
+<div class="pay-grid">
+<div class="mtn" onclick="pay('MTN')">MTN MoMo</div>
+<div class="airtel" onclick="pay('Airtel')">Airtel Money</div>
+</div>
+<button class="btn-green" onclick="book()">📲 BOOK ON WHATSAPP</button>
+<button class="btn-yellow" onclick="pay('MTN')">💰 PAY NOW MoMo - 0792664825</button>
+<p style="font-size:11px;text-align:center;color:#666;margin-top:6px">Pay to: 0792664825 - KAWA UGANDA<br>Order goes to WhatsApp 0792408497</p>
+</div>
+
+<div class="card">
+<h3>📦 Our Services</h3>
+<div class="services">
+<div class="srv">🍔<br><b>Food</b><br><small>Restaurant to you</small></div>
+<div class="srv">📄<br><b>Documents</b><br><small>Office fast</small></div>
+<div class="srv">🛒<br><b>Shopping</b><br><small>Market errands</small></div>
+<div class="srv">💊<br><b>Medicine</b><br><small>Pharmacy</small></div>
+</div>
+</div>
+
+<div class="card">
+<h3>⚡ How It Works</h3>
+<div class="steps">
+<div class="step">1️⃣<br><b>Book</b><br><small>Enter pickup & drop</small></div>
+<div class="step">2️⃣<br><b>Pay MoMo</b><br><small>0792664825</small></div>
+<div class="step">3️⃣<br><b>Rider Comes</b><br><small>In 10 mins</small></div>
+<div class="step">4️⃣<br><b>Delivered</b><br><small>In 30 mins</small></div>
+</div>
+</div>
+
+<div class="card" style="background:#16a34a;color:#fff;text-align:center">
+<h2>Why KAWA?</h2>
+<p style="margin:8px 0">✅ Cheaper than SafeBoda<br>✅ Pay with MTN/Airtel<br>✅ Live in Kampala<br>✅ 24/7 Support on WhatsApp</p>
+<button class="hero-btn" onclick="book()">Order Now</button>
+</div>
+
+<footer>
+<b style="color:#fff">🛵 KAWA UGANDA</b><br>
+MTN MoMo Pay: 0792664825<br>
+WhatsApp Orders: 0792408497<br>
+Kampala - Uganda<br><br>
+© 2026 KAWA - Fast Delivery
+</footer>
+</div>
+
+<script>
+function book(){
+let f=document.getElementById('from').value||'Nakawa';
+let t=document.getElementById('to').value||'Kira Road';
+let i=document.getElementById('item').value||'Package';
+let p=document.getElementById('price').innerText;
+window.open('https://wa.me/256792408497?text=*KAWA NEW ORDER*%0A%0A📍From: '+f+'%0A📍To: '+t+'%0A📦Item: '+i+'%0A💰Price: '+p+'%0A%0APaid to 0792664825','_blank');
+}
+function pay(n){
+let p=document.getElementById('price').innerText;
+alert(n+' Payment '+p+'\nSend to: 0792664825 - KAWA\nDial '+(n=='MTN'?'*165*3#':'*185*9#')+' then confirm');
+book();
+}
+document.getElementById('from').addEventListener('input',()=>{
+document.getElementById('price').innerText='UGX '+(Math.floor(Math.random()*5000+5500));
+});
+</script>
+</body></html>
