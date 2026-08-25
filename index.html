@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KAWA - Boda Delivery Truck Hotel Garage Near Me Uganda</title>
 <style>
-body{margin:0;font-family:Arial;background:#f8fafc}
+body{margin:0;font-family:Arial;background:#f8fafc;padding-bottom:80px}
 header{background:#16a34a;color:#fff;padding:15px;text-align:center}
 .btn{background:#16a34a;color:#fff;padding:14px 16px;text-decoration:none;border-radius:10px;display:block;margin:8px auto;font-weight:bold;text-align:center;width:90%;border:none;font-size:14px}
 .tabs{display:flex;justify-content:center;gap:5px;margin:8px;flex-wrap:wrap}
@@ -16,6 +16,14 @@ header{background:#16a34a;color:#fff;padding:15px;text-align:center}
 .emergency{background:#dc2626;color:#fff;padding:12px;text-align:center;font-weight:bold;font-size:14px}
 input,select{width:100%;padding:10px;margin:4px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
 footer{background:#000;color:#fff;text-align:center;padding:12px;font-size:10px}
+#chatBtn{position:fixed;bottom:15px;right:15px;background:#16a34a;color:#fff;width:60px;height:60px;border-radius:50%;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:999}
+#chatBox{position:fixed;bottom:85px;right:10px;width:300px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;z-index:998;overflow:hidden;border:1px solid #ddd}
+#chatHead{background:#16a34a;color:#fff;padding:12px;font-weight:bold;display:flex;justify-content:space-between}
+#chatBody{height:250px;overflow-y:auto;padding:10px;background:#f0fdf4}
+.msg{background:#fff;padding:8px 10px;border-radius:10px;margin:5px 0;font-size:12px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.bot{background:#dcfce7;border-left:3px solid #16a34a}
+.user{background:#16a34a;color:#fff;text-align:right;margin-left:20px}
+.quickBtn{background:#fff;border:1px solid #16a34a;color:#16a34a;padding:6px 10px;border-radius:15px;font-size:11px;margin:3px;cursor:pointer;display:inline-block}
 </style>
 </head>
 <body>
@@ -26,30 +34,30 @@ footer{background:#000;color:#fff;text-align:center;padding:12px;font-size:10px}
 </header>
 <div class="emergency">🚨 ARE YOU SEARCHING GARAGE NEAR ME? YOU ARE IN RIGHT PLACE! 🚨<br>CALL 0792664825 - WE SEND MECHANIC NEAR YOU IN 30 MIN - 24HRS UGANDA</div>
 <div class="tabs">
-<button class="tab" id="t-boda" onclick="show('boda')">Boda Near Me</button>
-<button class="tab" id="t-delivery" onclick="show('delivery')">Delivery</button>
-<button class="tab" id="t-truck" onclick="show('truck')">Truck Hotel Near Me</button>
-<button class="tab active" id="t-garage" onclick="show('garage')">Garage Near Me</button>
-<button class="tab" id="t-upcountry" onclick="show('upcountry')">Bus Near Me</button>
+<button class="tab" id="t-boda" onclick="showTab('boda')">Boda Near Me</button>
+<button class="tab" id="t-delivery" onclick="showTab('delivery')">Delivery</button>
+<button class="tab" id="t-truck" onclick="showTab('truck')">Truck Hotel Near Me</button>
+<button class="tab active" id="t-garage" onclick="showTab('garage')">Garage Near Me</button>
+<button class="tab" id="t-upcountry" onclick="showTab('upcountry')">Bus Near Me</button>
 </div>
-<div id="boda" style="display:none"><div class="box"><h2>🛵 Boda Near Me</h2><p>Need boda near you now?</p><input placeholder="From where? e.g. Wandegeya"><input placeholder="To where? e.g. Nakawa"><a class="btn" href="https://wa.me/256792664825?text=KAWA%20Boda%20Near%20Me">BOOK BODA NOW - 0792664825</a></div></div>
-<div id="delivery" style="display:none"><div class="box"><h2>📦 Delivery Near Me</h2><p>Fast delivery near you - 30 min in Kampala!</p><input placeholder="What to deliver?"><input placeholder="Pickup location"><input placeholder="Drop location"><select><option>Boda (5K-15K)</option><option>Car (20K-40K)</option><option>Truck (100K+)</option></select><a class="btn" style="background:#ea580c" href="https://wa.me/256792664825?text=KAWA%20Delivery%20Near%20Me">BOOK DELIVERY NOW - 0792664825</a><div class="card">✅ Parcel delivery, food delivery, document delivery all Uganda</div></div></div>
-<div id="truck" style="display:none"><div class="box"><h2>🚚 Truck Hotel Near Me</h2><p>Hotel near me for truck drivers - Secure parking!</p><div class="card"><b>Jinja</b> - Jinja Highway Hotel - 30K - Parking 20 trucks</div><div class="card"><b>Busia Border</b> - Border Inn - 30K - Secure - Best for Kenya-Uganda</div><div class="card"><b>Mbale</b> - Highway Lodge - 25K</div><div class="card"><b>Mbarara</b> - Highway Hotel - 30K</div><div class="card"><b>Tororo</b> - Cement Rd Lodge - 20K</div><div class="card"><b>Bushenyi</b> - Stop Over - 20K</div><div class="card"><b>Kampala Natete</b> - Natete Truck Inn - 25K</div><a class="btn" href="https://wa.me/256792664825?text=KAWA%20Truck%20Hotel%20Near%20Me">BOOK HOTEL NOW</a></div></div>
-<div id="garage" style="display:block"><div class="box"><h2>🔧 Garage Near Me - ALL TOWNS</h2>
-<div class="card"><b>Wandegeya Boda Garage Near Me</b><br>Near Makerere | 5K-50K | 6AM-10PM</div>
-<div class="card"><b>Natete Truck Garage Near Me - 24hrs</b><br>Masaka Rd | 30K-200K | Truck tyre</div>
-<div class="card"><b>Jinja Bridge Garage Near Me - 24hrs</b><br>After Jinja Bridge | Heavy truck</div>
-<div class="card"><b>Busia Border Garage Near Me - 24hrs</b><br>Customs area | Kenya-Uganda trucks</div>
-<div class="card"><b>Mbale Tororo Rd Garage Near Me</b><br>Highway rescue</div>
-<div class="card"><b>Tororo-Malaba Garage Near Me - 24hrs</b><br>Malaba border road</div>
-<div class="card"><b>Mbarara Highway Garage Near Me - 24hrs</b><br>Masaka-Mbarara Rd</div>
-<div class="card"><b>Bushenyi Highway Garage Near Me</b><br>Mbarara-Kasese Rd</div>
-<a class="btn" style="background:#dc2626" href="https://wa.me/256792664825?text=EMERGENCY%20GARAGE%20NEAR%20ME%20Location:">🚨 CALL MECHANIC NEAR ME NOW</a>
-</div></div>
-<div id="upcountry" style="display:none"><div class="box"><h2>🚌 Bus Near Me - Upcountry</h2><input placeholder="From? Kampala"><input placeholder="To? Mbale, Jinja, Mbarara, Busia"><a class="btn" href="https://wa.me/256792664825?text=KAWA%20Bus%20Near%20Me">BOOK BUS NOW</a><div class="card">Kampala to Jinja, Busia, Mbale, Tororo, Mbarara, Bushenyi daily</div></div></div>
-<footer>KAWA - Garage Near Me Uganda | 0792664825<br>Garage Near Me Jinja | Busia | Mbale | Tororo | Mbarara | Bushenyi | Kampala<br>© 2026 KAWA Uganda - #1 for Garage Near Me</footer>
+<div id="boda" style="display:none"><div class="box"><h2>🛵 Boda Near Me</h2><p>Need boda near you now?</p><input id="b_from" placeholder="From where? e.g. Wandegeya"><input id="b_to" placeholder="To where? e.g. Nakawa"><button class="btn" onclick="bookBoda()">BOOK BODA NOW - 0792664825</button></div></div>
+<div id="delivery" style="display:block"><div class="box"><h2>📦 Delivery Near Me</h2><p>Fast delivery near you - 30 min in Kampala!</p><input id="d_what" placeholder="What to deliver?"><input id="d_from" placeholder="Pickup location"><input id="d_to" placeholder="Drop location"><select id="d_type"><option>Boda (5K-15K)</option><option>Car (20K-40K)</option><option>Truck (100K+)</option></select><button class="btn" style="background:#ea580c" onclick="bookDelivery()">BOOK DELIVERY NOW - 0792664825</button><div class="card">✅ Parcel delivery, food delivery, document delivery all Uganda</div></div></div>
+<div id="truck" style="display:none"><div class="box"><h2>🚚 Truck Hotel Near Me</h2><div class="card"><b>Jinja</b> - Jinja Highway Hotel - 30K - Parking 20 trucks</div><div class="card"><b>Busia Border</b> - Border Inn - 30K - Secure</div><div class="card"><b>Mbale</b> - Highway Lodge - 25K</div><div class="card"><b>Mbarara</b> - Highway Hotel - 30K</div><div class="card"><b>Tororo</b> - Cement Rd Lodge - 20K</div><div class="card"><b>Bushenyi</b> - Stop Over - 20K</div><div class="card"><b>Kampala Natete</b> - Natete Truck Inn - 25K</div><button class="btn" onclick="bookHotel()">BOOK HOTEL NOW</button></div></div>
+<div id="garage" style="display:none"><div class="box"><h2>🔧 Garage Near Me - ALL TOWNS</h2><div class="card"><b>Wandegeya Boda Garage Near Me</b><br>Near Makerere | 5K-50K | 6AM-10PM</div><div class="card"><b>Natete Truck Garage Near Me - 24hrs</b><br>Masaka Rd | 30K-200K | Truck tyre</div><div class="card"><b>Jinja Bridge Garage Near Me - 24hrs</b><br>After Jinja Bridge | Heavy truck</div><div class="card"><b>Busia Border Garage Near Me - 24hrs</b><br>Customs area | Kenya-Uganda trucks</div><div class="card"><b>Mbale Tororo Rd Garage Near Me</b><br>Highway rescue</div><div class="card"><b>Tororo-Malaba Garage Near Me - 24hrs</b><br>Malaba border road</div><div class="card"><b>Mbarara Highway Garage Near Me - 24hrs</b><br>Masaka-Mbarara Rd</div><div class="card"><b>Bushenyi Highway Garage Near Me</b><br>Mbarara-Kasese Rd</div><button class="btn" style="background:#dc2626" onclick="bookGarage()">🚨 CALL MECHANIC NEAR ME NOW</button></div></div>
+<div id="upcountry" style="display:none"><div class="box"><h2>🚌 Bus Near Me - Upcountry</h2><input id="u_from" placeholder="From? Kampala"><input id="u_to" placeholder="To? Mbale, Jinja, Mbarara, Busia"><button class="btn" onclick="bookBus()">BOOK BUS NOW</button><div class="card">Kampala to Jinja, Busia, Mbale, Tororo, Mbarara, Bushenyi daily</div></div></div>
+
+<button id="chatBtn" onclick="toggleChat()">💬</button>
+<div id="chatBox">
+<div id="chatHead"><span>KAWA Auto-Reply 🤖</span><span onclick="toggleChat()" style="cursor:pointer">✖</span></div>
+<div id="chatBody"></div>
+<div style="padding:8px;background:#fff;border-top:1px solid #ddd">
+<div id="quick"></div>
+</div>
+</div>
+
+<footer>KAWA - Garage Near Me Uganda | 0792664825<br>Garage Near Me Jinja | Busia | Mbale | Tororo | Mbarara | Bushenyi | Kampala<br>© 2026 KAWA Uganda - #1 for Garage Near Me - Auto Reply 24/7</footer>
 <script>
-function show(id){
+function showTab(id){
  ['boda','delivery','truck','garage','upcountry'].forEach(x=>{
    document.getElementById(x).style.display=x==id?'block':'none';
    document.getElementById('t-'+x).classList.remove('active');
@@ -58,6 +66,41 @@ function show(id){
  document.getElementById('t-'+id).classList.add('active');
  window.scrollTo(0,0);
 }
+function toggleChat(){var b=document.getElementById('chatBox');b.style.display=b.style.display=='none' || b.style.display==''?'block':'none';}
+function addMsg(text,who){var d=document.getElementById('chatBody');var m=document.createElement('div');m.className='msg '+who;m.innerText=text;d.appendChild(m);d.scrollTop=d.scrollHeight;}
+function setQuick(options){var q=document.getElementById('quick');q.innerHTML='';options.forEach(o=>{var b=document.createElement('span');b.className='quickBtn';b.innerText=o.t;b.onclick=o.f;q.appendChild(b);});}
+function botWelcome(){
+ toggleChat();
+ addMsg('Hello! 👋 Welcome to KAWA - Garage Near Me Uganda!', 'bot');
+ setTimeout(()=>{addMsg('I am automatic reply 🤖 I can help you even when boss is sleeping! Where are you now?', 'bot');setQuick([{t:'📍 Jinja',f:()=>loc('Jinja')},{t:'📍 Busia Border',f:()=>loc('Busia Border')},{t:'📍 Mbale',f:()=>loc('Mbale')},{t:'📍 Mbarara',f:()=>loc('Mbarara')},{t:'📍 Kampala',f:()=>loc('Kampala')}])},1000);
+}
+function loc(place){
+ addMsg(place,'user');
+ setTimeout(()=>{
+  addMsg('Got it! You are in '+place+'. What do you need near you?', 'bot');
+  setQuick([
+   {t:'🛵 Boda Near Me',f:()=>need('Boda Near Me in '+place)},
+   {t:'📦 Delivery Near Me',f:()=>need('Delivery Near Me in '+place)},
+   {t:'🚚 Truck Hotel Near Me',f:()=>need('Truck Hotel Near Me in '+place)},
+   {t:'🔧 Garage Near Me',f:()=>need('Emergency Garage Near Me in '+place)},
+   {t:'🚌 Bus Near Me',f:()=>need('Bus Near Me from '+place)}
+  ]);
+ },500);
+}
+function need(service){
+ addMsg(service,'user');
+ setTimeout(()=>{
+  addMsg('Perfect! For '+service+' - our mechanic/driver is near you! Click below to connect on WhatsApp now. We reply in 2 minutes! 🚀', 'bot');
+  setQuick([{t:'💬 Chat on WhatsApp Now - 0792664825',f:()=>{window.open('https://wa.me/256792664825?text=KAWA%20AUTO%20BOT%20-%20I%20need%20'+encodeURIComponent(service),'_blank')}}]);
+ },600);
+}
+function bookBoda(){var f=document.getElementById('b_from').value;var t=document.getElementById('b_to').value;window.open('https://wa.me/256792664825?text=KAWA%20Boda%20Near%20Me%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(t),'_blank');}
+function bookDelivery(){var w=document.getElementById('d_what').value;var f=document.getElementById('d_from').value;var tt=document.getElementById('d_to').value;var ty=document.getElementById('d_type').value;window.open('https://wa.me/256792664825?text=KAWA%20Delivery%20Near%20Me%20'+encodeURIComponent(w)+'%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(tt)+'%20Type%20'+encodeURIComponent(ty),'_blank');}
+function bookHotel(){window.open('https://wa.me/256792664825?text=KAWA%20Truck%20Hotel%20Near%20Me','_blank');}
+function bookGarage(){window.open('https://wa.me/256792664825?text=EMERGENCY%20GARAGE%20NEAR%20ME%20Location:','_blank');}
+function bookBus(){var f=document.getElementById('u_from').value;var t=document.getElementById('u_to').value;window.open('https://wa.me/256792664825?text=KAWA%20Bus%20Near%20Me%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(t),'_blank');}
+setTimeout(botWelcome,3000);
+setTimeout(()=>{document.getElementById('chatBox').style.display='block';},3000);
 </script>
 </body>
 </html>
