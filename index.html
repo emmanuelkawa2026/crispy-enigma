@@ -1,111 +1,118 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KAWA UGANDA - #1 Delivery App</title>
+<title>KAWA UGANDA - All Transport</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#f5f7fb}
+.container{max-width:500px;margin:0 auto}
 header{background:#111;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
 .logo{font-weight:900;font-size:20px;color:#16a34a}
-.badge{background:#16a34a;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px}
-.hero{background:linear-gradient(135deg,#16a34a,#0f7a38);color:#fff;padding:25px 16px;text-align:center}
-.hero h1{font-size:28px;line-height:1.1}
-.hero p{opacity:.9;margin:8px 0 14px}
-.hero-btn{background:#ffcc00;color:#000;padding:12px 22px;border-radius:30px;font-weight:900;border:none}
-.container{max-width:480px;margin:0 auto}
 .card{background:#fff;margin:12px;border-radius:18px;padding:16px;box-shadow:0 6px 20px #0001}
-input,select{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e5e7eb;border-radius:12px;font-size:15px}
-.price-box{display:flex;gap:10px}
-.price-box div{flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center}
+.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0}
+.tab{min-width:90px;background:#eee;border-radius:20px;padding:10px 14px;text-align:center;font-weight:800;cursor:pointer;border:2px solid transparent}
+.tab.active{background:#16a34a;color:#fff;border-color:#16a34a}
+input,select{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e5e7eb;border-radius:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vehicle{border:2px solid #eee;border-radius:14px;padding:12px;text-align:center;cursor:pointer}
+.vehicle.active{border-color:#16a34a;background:#f0fdf4}
+.vehicle b{display:block;margin-top:6px}
 .pay-grid{display:flex;gap:10px;margin:12px 0}
 .mtn{background:#ffcc00;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
 .airtel{background:#ff0000;color:#fff;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
 .btn-green{background:#16a34a;color:#fff;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin:6px 0}
-.btn-yellow{background:#ffcc00;color:#000;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin:6px 0}
-.services{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.srv{background:#f9fafb;border:1px solid #eee;border-radius:12px;padding:12px;text-align:center}
-.steps{display:flex;gap:10px;overflow:auto}
-.step{min-width:130px;background:#f9fafb;border-radius:12px;padding:12px;text-align:center}
+.btn-yellow{background:#ffcc00;color:#000;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900}
 footer{background:#111;color:#999;padding:20px;text-align:center;font-size:13px;margin-top:20px}
 </style></head>
 <body>
 <div class="container">
-<header><div class="logo">🛵 KAWA</div><div class="badge">LIVE KAMPALA</div></header>
+<header><div class="logo">🛵 KAWA TRANSPORT</div><div style="background:#16a34a;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px">LIVE</div></header>
 
-<div class="hero">
-<h1>Fast Delivery in 30 Mins</h1>
-<p>Kampala's cheapest boda delivery - Pay with MTN MoMo</p>
-<button class="hero-btn" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">BOOK NOW ↓</button>
+<div class="card">
+<h3>🚚 Choose Transport Type</h3>
+<div class="tabs">
+<div class="tab active" onclick="setType('delivery',this)">🛵 Delivery</div>
+<div class="tab" onclick="setType('garage',this)">🔧 Garage</div>
+<div class="tab" onclick="setType('truck',this)">🚚 Trucks</div>
+<div class="tab" onclick="setType('bus',this)">🚌 Bus/Taxi</div>
 </div>
 
-<div class="card" id="book">
-<h3>📍 Book Your Delivery</h3>
-<input id="from" placeholder="Pickup - e.g. Nakawa Market">
-<input id="to" placeholder="Drop - e.g. Kira Road">
-<input id="item" placeholder="What to deliver? e.g. Documents, Food">
-<div class="price-box">
-<div><small>Price</small><br><b id="price" style="color:#16a34a;font-size:20px">UGX 8,500</b></div>
-<div><small>Time</small><br><b>30 min</b></div>
+<div id="deliveryBox">
+<h4 style="margin:12px 0">🛵 Boda Delivery</h4>
+<div class="grid2">
+<div class="vehicle active" onclick="sel(this)"><span style="font-size:30px">🛵</span><b>Boda</b><small>UGX 3k-8k</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">📦</span><b>Express</b><small>UGX 8k-15k</small></div>
 </div>
-<p style="margin-top:12px;font-weight:800">💳 Pay With Mobile Money:</p>
-<div class="pay-grid">
-<div class="mtn" onclick="pay('MTN')">MTN MoMo</div>
-<div class="airtel" onclick="pay('Airtel')">Airtel Money</div>
 </div>
-<button class="btn-green" onclick="book()">📲 BOOK ON WHATSAPP</button>
-<button class="btn-yellow" onclick="pay('MTN')">💰 PAY NOW MoMo - 0792664825</button>
-<p style="font-size:11px;text-align:center;color:#666;margin-top:6px">Pay to: 0792664825 - KAWA UGANDA<br>Order goes to WhatsApp 0792408497</p>
+
+<div id="garageBox" style="display:none">
+<h4 style="margin:12px 0">🔧 Garage Services</h4>
+<div class="grid2">
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🔧</span><b>Repair</b><small>On-site</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🛞</span><b>Towing</b><small>Breakdown</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">⛽</span><b>Fuel Delivery</b><small>Emergency</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🔋</span><b>Battery</b><small>Jump-start</small></div>
+</div>
+</div>
+
+<div id="truckBox" style="display:none">
+<h4 style="margin:12px 0">🚚 Trucks & Lorries</h4>
+<div class="grid2">
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚚</span><b>Small Truck</b><small>1-3 Tons</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚛</span><b>Big Truck</b><small>5-10 Tons</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🏗️</span><b>Tipper</b><small>Sand/Murram</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚜</span><b>Trailer</b><small>Long distance</small></div>
+</div>
+</div>
+
+<div id="busBox" style="display:none">
+<h4 style="margin:12px 0">🚌 Bus & Taxi Booking</h4>
+<div class="grid2">
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚕</span><b>Taxi 14-seater</b><small>Kampala routes</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚌</span><b>Coaster 30-seater</b><small>Upcountry</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚐</span><b>Mini-Bus Hire</b><small>Events</small></div>
+<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">✈️</span><b>Airport Shuttle</b><small>Entebbe</small></div>
+</div>
+</div>
+
 </div>
 
 <div class="card">
-<h3>📦 Our Services</h3>
-<div class="services">
-<div class="srv">🍔<br><b>Food</b><br><small>Restaurant to you</small></div>
-<div class="srv">📄<br><b>Documents</b><br><small>Office fast</small></div>
-<div class="srv">🛒<br><b>Shopping</b><br><small>Market errands</small></div>
-<div class="srv">💊<br><b>Medicine</b><br><small>Pharmacy</small></div>
-</div>
-</div>
-
-<div class="card">
-<h3>⚡ How It Works</h3>
-<div class="steps">
-<div class="step">1️⃣<br><b>Book</b><br><small>Enter pickup & drop</small></div>
-<div class="step">2️⃣<br><b>Pay MoMo</b><br><small>0792664825</small></div>
-<div class="step">3️⃣<br><b>Rider Comes</b><br><small>In 10 mins</small></div>
-<div class="step">4️⃣<br><b>Delivered</b><br><small>In 30 mins</small></div>
-</div>
+<input id="from" placeholder="From - e.g. Nakawa">
+<input id="to" placeholder="To - e.g. Kira Road">
+<input id="phone" placeholder="Your phone">
+<div style="display:flex;gap:10px"><div style="flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center"><small>Price</small><br><b id="price" style="color:#16a34a;font-size:18px">UGX 8,500</b></div><div style="flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center"><small>Pay to</small><br><b>0792664825</b></div></div>
+<div class="pay-grid"><div class="mtn" onclick="pay('MTN')">MTN MoMo</div><div class="airtel" onclick="pay('Airtel')">Airtel Money</div></div>
+<button class="btn-green" onclick="book()">📲 BOOK ON WHATSAPP - 0792408497</button>
+<button class="btn-yellow" onclick="pay('MTN')">💰 PAY NOW 0792664825</button>
 </div>
 
-<div class="card" style="background:#16a34a;color:#fff;text-align:center">
-<h2>Why KAWA?</h2>
-<p style="margin:8px 0">✅ Cheaper than SafeBoda<br>✅ Pay with MTN/Airtel<br>✅ Live in Kampala<br>✅ 24/7 Support on WhatsApp</p>
-<button class="hero-btn" onclick="book()">Order Now</button>
-</div>
-
-<footer>
-<b style="color:#fff">🛵 KAWA UGANDA</b><br>
-MTN MoMo Pay: 0792664825<br>
-WhatsApp Orders: 0792408497<br>
-Kampala - Uganda<br><br>
-© 2026 KAWA - Fast Delivery
-</footer>
+<footer><b style="color:#fff">🛵 KAWA UGANDA TRANSPORT LTD</b><br>Delivery | Garage | Trucks | Bus<br>MoMo: 0792664825 | WhatsApp: 0792408497<br>Kampala - Uganda</footer>
 </div>
 
 <script>
+let currentType='delivery';
+function setType(t,el){
+currentType=t;
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+el.classList.add('active');
+document.getElementById('deliveryBox').style.display=t=='delivery'?'block':'none';
+document.getElementById('garageBox').style.display=t=='garage'?'block':'none';
+document.getElementById('truckBox').style.display=t=='truck'?'block':'none';
+document.getElementById('busBox').style.display=t=='bus'?'block':'none';
+let prices={delivery:'UGX 8,500',garage:'UGX 25,000',truck:'UGX 120,000',bus:'UGX 45,000'};
+document.getElementById('price').innerText=prices[t];
+}
+function sel(el){el.parentElement.querySelectorAll('.vehicle').forEach(v=>v.classList.remove('active'));el.classList.add('active');}
 function book(){
-let f=document.getElementById('from').value||'Nakawa';
-let t=document.getElementById('to').value||'Kira Road';
-let i=document.getElementById('item').value||'Package';
+let f=document.getElementById('from').value||'Kampala';
+let t=document.getElementById('to').value||'Kira';
 let p=document.getElementById('price').innerText;
-window.open('https://wa.me/256792408497?text=*KAWA NEW ORDER*%0A%0A📍From: '+f+'%0A📍To: '+t+'%0A📦Item: '+i+'%0A💰Price: '+p+'%0A%0APaid to 0792664825','_blank');
+window.open('https://wa.me/256792408497?text=*KAWA '+currentType.toUpperCase()+' BOOKING*%0AFrom:'+f+'%0ATo:'+t+'%0AType:'+currentType+'%0APrice:'+p+'%0APaid to 0792664825','_blank');
 }
 function pay(n){
 let p=document.getElementById('price').innerText;
-alert(n+' Payment '+p+'\nSend to: 0792664825 - KAWA\nDial '+(n=='MTN'?'*165*3#':'*185*9#')+' then confirm');
+alert(n+' Pay '+p+' to 0792664825 - KAWA\nDial '+(n=='MTN'?'*165*3#':'*185*9#'));
 book();
 }
-document.getElementById('from').addEventListener('input',()=>{
-document.getElementById('price').innerText='UGX '+(Math.floor(Math.random()*5000+5500));
-});
 </script>
 </body></html>
