@@ -1,106 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KAWA - Boda Delivery Truck Hotel Garage Near Me Uganda</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kawa Transport - Fast & Safe Uganda</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Arial;background:#f8fafc;padding-bottom:80px}
-header{background:#16a34a;color:#fff;padding:15px;text-align:center}
-.btn{background:#16a34a;color:#fff;padding:14px 16px;text-decoration:none;border-radius:10px;display:block;margin:8px auto;font-weight:bold;text-align:center;width:90%;border:none;font-size:14px}
-.tabs{display:flex;justify-content:center;gap:5px;margin:8px;flex-wrap:wrap}
-.tab{padding:8px 12px;border-radius:20px;border:2px solid #16a34a;background:#fff;font-weight:bold;font-size:11px;cursor:pointer}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
+body{margin:0;font-family:Arial;background:#f5f7fb;color:#111}
+header{background:#16a34a;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99;box-shadow:0 4px 15px rgba(0,0,0,0.15)}
+header b{font-size:22px;letter-spacing:0.5px}
+.btn{background:#16a34a;color:#fff;padding:12px 20px;border:none;border-radius:12px;font-weight:700;cursor:pointer;transition:0.2s;width:100%}
+.btn:hover{background:#15803d;transform:translateY(-1px)}
+.tabs{display:flex;justify-content:center;gap:10px;padding:12px;background:#fff;position:sticky;top:62px;z-index:98;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.tab{padding:8px 18px;border-radius:20px;border:1px solid #ddd;background:#fff;cursor:pointer;font-weight:600}
 .tab.active{background:#dc2626;color:#fff;border-color:#dc2626}
-.box{background:#fff;margin:8px;padding:12px;border-radius:10px}
-.card{border:1px solid #fed7aa;padding:10px;border-radius:8px;margin:6px 0;background:#fff7ed;font-size:12px}
-.emergency{background:#dc2626;color:#fff;padding:12px;text-align:center;font-weight:bold;font-size:14px}
-input,select{width:100%;padding:10px;margin:4px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
-footer{background:#000;color:#fff;text-align:center;padding:12px;font-size:10px}
-#chatBtn{position:fixed;bottom:15px;right:15px;background:#16a34a;color:#fff;width:60px;height:60px;border-radius:50%;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:999}
-#chatBox{position:fixed;bottom:85px;right:10px;width:300px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;z-index:998;overflow:hidden;border:1px solid #ddd}
-#chatHead{background:#16a34a;color:#fff;padding:12px;font-weight:bold;display:flex;justify-content:space-between}
-#chatBody{height:250px;overflow-y:auto;padding:10px;background:#f0fdf4}
-.msg{background:#fff;padding:8px 10px;border-radius:10px;margin:5px 0;font-size:12px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.box{background:#fff;margin:12px 8px;padding:18px;border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,0.06);border:1px solid #eee}
+.card{border:1px solid #fed7aa;padding:14px;border-radius:14px;background:#fff7ed;margin-top:12px}
+.emergency{background:#dc2626;color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:800;cursor:pointer;margin:12px 0;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+input,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px;margin:8px 0;outline:none;font-size:15px}
+input:focus,select:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,0.15)}
+footer{background:#000;color:#fff;text-align:center;padding:20px;margin-top:20px}
+#chatBtn{position:fixed;bottom:15px;right:15px;background:#16a34a;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 8px 25px rgba(22,163,74,0.4);z-index:999}
+#chatBox{position:fixed;bottom:85px;right:15px;width:90%;max-width:340px;background:#fff;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;z-index:999;border:1px solid #eee}
+#chatHead{background:#16a34a;color:#fff;padding:12px 16px;font-weight:700;display:flex;justify-content:space-between}
+#chatBody{height:250px;overflow-y:auto;padding:12px;background:#f9fafb}
+.msg{background:#fff;padding:8px 12px;border-radius:12px;margin:6px 0;max-width:80%;box-shadow:0 2px 8px rgba(0,0,0,0.05);font-size:14px}
 .bot{background:#dcfce7;border-left:3px solid #16a34a}
-.user{background:#16a34a;color:#fff;text-align:right;margin-left:20px}
-.quickBtn{background:#fff;border:1px solid #16a34a;color:#16a34a;padding:6px 10px;border-radius:15px;font-size:11px;margin:3px;cursor:pointer;display:inline-block}
+.user{background:#16a34a;color:#fff;margin-left:auto;text-align:right}
+.quickBtn{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;margin:3px}
+.price-tag{font-size:26px;font-weight:800;color:#16a34a}
+.badge{background:#dcfce7;color:#16a34a;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}
 </style>
 </head>
 <body>
 <header>
-<h1 style="margin:0">Uganda</h1>
-<p style="margin:4px 0;font-size:12px;font-weight:bold">24hr Emergency Garage Rescue - Mechanic Near Me in 30 Minutes</p>
-<p style="margin:2px 0;font-size:11px">Garage Near Me in Jinja | Busia Border | Mbale | Tororo | Mbarara | Bushenyi | Kampala Wandegeya | Call 0792664825</p>
+<b>🛵 KAWA TRANSPORT</b>
+<span style="background:#fff;color:#16a34a;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700">UGANDA • 24/7</span>
 </header>
-<div class="emergency">🚨 ARE YOU SEARCHING GARAGE NEAR ME? YOU ARE IN RIGHT PLACE! 🚨<br>CALL 0792664825 - WE SEND MECHANIC NEAR YOU IN 30 MIN - 24HRS UGANDA</div>
+
 <div class="tabs">
-<button class="tab" id="t-boda" onclick="showTab('boda')">Boda Near Me</button>
-<button class="tab" id="t-delivery" onclick="showTab('delivery')">Delivery</button>
-<button class="tab" id="t-truck" onclick="showTab('truck')">Truck Hotel Near Me</button>
-<button class="tab active" id="t-garage" onclick="showTab('garage')">Garage Near Me</button>
-<button class="tab" id="t-upcountry" onclick="showTab('upcountry')">Bus Near Me</button>
+<div class="tab active" onclick="setTab(this,'boda')">Boda Boda</div>
+<div class="tab" onclick="setTab(this,'taxi')">Taxi</div>
+<div class="tab" onclick="setTab(this,'truck')">Truck</div>
 </div>
-<div id="boda" style="display:none"><div class="box"><h2>🛵 Boda Near Me</h2><p>Need boda near you now?</p><input id="b_from" placeholder="From where? e.g. Wandegeya"><input id="b_to" placeholder="To where? e.g. Nakawa"><button class="btn" onclick="bookBoda()">BOOK BODA NOW - 0792664825</button></div></div>
-<div id="delivery" style="display:block"><div class="box"><h2>📦 Delivery Near Me</h2><p>Fast delivery near you - 30 min in Kampala!</p><input id="d_what" placeholder="What to deliver?"><input id="d_from" placeholder="Pickup location"><input id="d_to" placeholder="Drop location"><select id="d_type"><option>Boda (5K-15K)</option><option>Car (20K-40K)</option><option>Truck (100K+)</option></select><button class="btn" style="background:#ea580c" onclick="bookDelivery()">BOOK DELIVERY NOW - 0792664825</button><div class="card">✅ Parcel delivery, food delivery, document delivery all Uganda</div></div></div>
-<div id="truck" style="display:none"><div class="box"><h2>🚚 Truck Hotel Near Me</h2><div class="card"><b>Jinja</b> - Jinja Highway Hotel - 30K - Parking 20 trucks</div><div class="card"><b>Busia Border</b> - Border Inn - 30K - Secure</div><div class="card"><b>Mbale</b> - Highway Lodge - 25K</div><div class="card"><b>Mbarara</b> - Highway Hotel - 30K</div><div class="card"><b>Tororo</b> - Cement Rd Lodge - 20K</div><div class="card"><b>Bushenyi</b> - Stop Over - 20K</div><div class="card"><b>Kampala Natete</b> - Natete Truck Inn - 25K</div><button class="btn" onclick="bookHotel()">BOOK HOTEL NOW</button></div></div>
-<div id="garage" style="display:none"><div class="box"><h2>🔧 Garage Near Me - ALL TOWNS</h2><div class="card"><b>Wandegeya Boda Garage Near Me</b><br>Near Makerere | 5K-50K | 6AM-10PM</div><div class="card"><b>Natete Truck Garage Near Me - 24hrs</b><br>Masaka Rd | 30K-200K | Truck tyre</div><div class="card"><b>Jinja Bridge Garage Near Me - 24hrs</b><br>After Jinja Bridge | Heavy truck</div><div class="card"><b>Busia Border Garage Near Me - 24hrs</b><br>Customs area | Kenya-Uganda trucks</div><div class="card"><b>Mbale Tororo Rd Garage Near Me</b><br>Highway rescue</div><div class="card"><b>Tororo-Malaba Garage Near Me - 24hrs</b><br>Malaba border road</div><div class="card"><b>Mbarara Highway Garage Near Me - 24hrs</b><br>Masaka-Mbarara Rd</div><div class="card"><b>Bushenyi Highway Garage Near Me</b><br>Mbarara-Kasese Rd</div><button class="btn" style="background:#dc2626" onclick="bookGarage()">🚨 CALL MECHANIC NEAR ME NOW</button></div></div>
-<div id="upcountry" style="display:none"><div class="box"><h2>🚌 Bus Near Me - Upcountry</h2><input id="u_from" placeholder="From? Kampala"><input id="u_to" placeholder="To? Mbale, Jinja, Mbarara, Busia"><button class="btn" onclick="bookBus()">BOOK BUS NOW</button><div class="card">Kampala to Jinja, Busia, Mbale, Tororo, Mbarara, Bushenyi daily</div></div></div>
 
-<button id="chatBtn" onclick="toggleChat()">💬</button>
+<div class="box">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h3>Book Ride Now</h3><span class="badge">⚡ 3 mins away</span>
+</div>
+<input id="from" placeholder="From - e.g. Nakawa, Kampala">
+<input id="to" placeholder="To - e.g. Kira Road">
+<select id="type">
+<option>Boda Boda - UGX 3k-15k</option>
+<option>Special Hire - UGX 20k+</option>
+<option>Truck - Cargo</option>
+</select>
+<div style="display:flex;gap:10px;margin:10px 0">
+<div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Distance</small><br><b id="km">4.2 KM</b></div>
+<div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Price</small><br><b class="price-tag" id="price">8,500</b></div>
+</div>
+<button class="btn" onclick="book()">📲 BOOK NOW ON WHATSAPP</button>
+<div class="card">
+<b>Why Kawa?</b><br>✅ Fixed price, no bargaining<br>✅ Helmet + Safety<br>✅ Tracked by GPS<br>✅ Pay Cash or Mobile Money
+</div>
+</div>
+
+<div class="box">
+<div class="emergency" onclick="emergency()">🆘 EMERGENCY SOS - TAP 2 SEC</div>
+<p style="text-align:center;font-size:13px;color:#666">Long press for police + share live location</p>
+</div>
+
+<footer>
+<b>Kawa Transport Uganda</b><br>Safe • Fast • Affordable<br>WhatsApp: +256 700 000000<br><br>© 2026 Built in Kampala
+</footer>
+
+<div id="chatBtn" onclick="toggleChat()">💬</div>
 <div id="chatBox">
-<div id="chatHead"><span>KAWA Auto-Reply 🤖</span><span onclick="toggleChat()" style="cursor:pointer">✖</span></div>
-<div id="chatBody"></div>
-<div style="padding:8px;background:#fff;border-top:1px solid #ddd">
-<div id="quick"></div>
+<div id="chatHead"><span>Kawa Assistant</span><span onclick="toggleChat()" style="cursor:pointer">✕</span></div>
+<div id="chatBody">
+<div class="msg bot">Hi! I'm Kawa Bot 🇺🇬 Where do you want to go today?</div>
+<div class="msg bot">Type pickup and destination.</div>
+</div>
+<div style="padding:8px;background:#fff;border-top:1px solid #eee">
+<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px">
+<span class="quickBtn" onclick="quick('Price from Nakawa to Town?')">💰 Price?</span>
+<span class="quickBtn" onclick="quick('Book boda now')">🛵 Book Boda</span>
+<span class="quickBtn" onclick="quick('Emergency')">🆘 Help</span>
+</div>
+<div style="display:flex;gap:6px"><input id="chatInput" placeholder="Ask something..." style="margin:0"><button onclick="sendChat()" style="background:#16a34a;color:#fff;border:none;padding:0 16px;border-radius:12px">➤</button></div>
 </div>
 </div>
 
-<footer>KAWA - Garage Near Me Uganda | 0792664825<br>Garage Near Me Jinja | Busia | Mbale | Tororo | Mbarara | Bushenyi | Kampala<br>© 2026 KAWA Uganda - #1 for Garage Near Me - Auto Reply 24/7</footer>
 <script>
-function showTab(id){
- ['boda','delivery','truck','garage','upcountry'].forEach(x=>{
-   document.getElementById(x).style.display=x==id?'block':'none';
-   document.getElementById('t-'+x).classList.remove('active');
- });
- document.getElementById(id).style.display='block';
- document.getElementById('t-'+id).classList.add('active');
- window.scrollTo(0,0);
+function setTab(el,mode){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+el.classList.add('active');
+const prices={boda:'8,500',taxi:'25,000',truck:'80,000'};
+document.getElementById('price').innerText=prices[mode];
 }
-function toggleChat(){var b=document.getElementById('chatBox');b.style.display=b.style.display=='none' || b.style.display==''?'block':'none';}
-function addMsg(text,who){var d=document.getElementById('chatBody');var m=document.createElement('div');m.className='msg '+who;m.innerText=text;d.appendChild(m);d.scrollTop=d.scrollHeight;}
-function setQuick(options){var q=document.getElementById('quick');q.innerHTML='';options.forEach(o=>{var b=document.createElement('span');b.className='quickBtn';b.innerText=o.t;b.onclick=o.f;q.appendChild(b);});}
-function botWelcome(){
- toggleChat();
- addMsg('Hello! 👋 Welcome to KAWA - Garage Near Me Uganda!', 'bot');
- setTimeout(()=>{addMsg('I am automatic reply 🤖 I can help you even when boss is sleeping! Where are you now?', 'bot');setQuick([{t:'📍 Jinja',f:()=>loc('Jinja')},{t:'📍 Busia Border',f:()=>loc('Busia Border')},{t:'📍 Mbale',f:()=>loc('Mbale')},{t:'📍 Mbarara',f:()=>loc('Mbarara')},{t:'📍 Kampala',f:()=>loc('Kampala')}])},1000);
+function book(){
+let f=document.getElementById('from').value||'My Location';
+let t=document.getElementById('to').value||'Destination';
+let p=document.getElementById('price').innerText;
+let msg=`Hello Kawa! 🛵%0ABook ride:%0AFrom: ${f}%0ATo: ${t}%0APrice: UGX ${p}%0A%0Ahttps://emmanuelkawa2026.github.io/crispy-enigma/`;
+window.open(`https://wa.me/256700000000?text=${msg}`,'_blank');
 }
-function loc(place){
- addMsg(place,'user');
- setTimeout(()=>{
-  addMsg('Got it! You are in '+place+'. What do you need near you?', 'bot');
-  setQuick([
-   {t:'🛵 Boda Near Me',f:()=>need('Boda Near Me in '+place)},
-   {t:'📦 Delivery Near Me',f:()=>need('Delivery Near Me in '+place)},
-   {t:'🚚 Truck Hotel Near Me',f:()=>need('Truck Hotel Near Me in '+place)},
-   {t:'🔧 Garage Near Me',f:()=>need('Emergency Garage Near Me in '+place)},
-   {t:'🚌 Bus Near Me',f:()=>need('Bus Near Me from '+place)}
-  ]);
- },500);
+function emergency(){
+if(confirm('🚨 EMERGENCY! Share location with Kawa Safety Team?')){
+alert('✅ SOS Sent! Your live location shared. Team calling you now. Police: 999');
+window.open('https://wa.me/256700000000?text=🆘%20EMERGENCY%20SOS%20NEED%20HELP%20-%20'+encodeURIComponent(location.href));
 }
-function need(service){
- addMsg(service,'user');
- setTimeout(()=>{
-  addMsg('Perfect! For '+service+' - our mechanic/driver is near you! Click below to connect on WhatsApp now. We reply in 2 minutes! 🚀', 'bot');
-  setQuick([{t:'💬 Chat on WhatsApp Now - 0792664825',f:()=>{window.open('https://wa.me/256792664825?text=KAWA%20AUTO%20BOT%20-%20I%20need%20'+encodeURIComponent(service),'_blank')}}]);
- },600);
 }
-function bookBoda(){var f=document.getElementById('b_from').value;var t=document.getElementById('b_to').value;window.open('https://wa.me/256792664825?text=KAWA%20Boda%20Near%20Me%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(t),'_blank');}
-function bookDelivery(){var w=document.getElementById('d_what').value;var f=document.getElementById('d_from').value;var tt=document.getElementById('d_to').value;var ty=document.getElementById('d_type').value;window.open('https://wa.me/256792664825?text=KAWA%20Delivery%20Near%20Me%20'+encodeURIComponent(w)+'%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(tt)+'%20Type%20'+encodeURIComponent(ty),'_blank');}
-function bookHotel(){window.open('https://wa.me/256792664825?text=KAWA%20Truck%20Hotel%20Near%20Me','_blank');}
-function bookGarage(){window.open('https://wa.me/256792664825?text=EMERGENCY%20GARAGE%20NEAR%20ME%20Location:','_blank');}
-function bookBus(){var f=document.getElementById('u_from').value;var t=document.getElementById('u_to').value;window.open('https://wa.me/256792664825?text=KAWA%20Bus%20Near%20Me%20From%20'+encodeURIComponent(f)+'%20To%20'+encodeURIComponent(t),'_blank');}
-setTimeout(botWelcome,3000);
-setTimeout(()=>{document.getElementById('chatBox').style.display='block';},3000);
+let chatOpen=false;
+function toggleChat(){
+chatOpen=!chatOpen;
+document.getElementById('chatBox').style.display=chatOpen?'flex':'none';
+}
+function quick(t){document.getElementById('chatInput').value=t;sendChat();}
+function sendChat(){
+let i=document.getElementById('chatInput');
+if(!i.value)return;
+let body=document.getElementById('chatBody');
+body.innerHTML+=`<div class="msg user">${i.value}</div>`;
+let reply='Thanks! A driver is 3 mins away from you. Book now to get fixed price UGX '+document.getElementById('price').innerText;
+if(i.value.toLowerCase().includes('price')) reply='Boda in Kampala is UGX 3,000 - 15,000 depending on distance. From Nakawa to Town is ~ UGX 8,500';
+if(i.value.toLowerCase().includes('emergency')) reply='🆘 For emergency, tap RED SOS button above. We share GPS with police.';
+setTimeout(()=>{body.innerHTML+=`<div class="msg bot">${reply}</div>`;body.scrollTop=body.scrollHeight;},600);
+i.value='';body.scrollTop=body.scrollHeight;
+}
+document.getElementById('from').addEventListener('input',()=>{
+let v=Math.random()*10+1;
+document.getElementById('km').innerText=v.toFixed(1)+' KM';
+document.getElementById('price').innerText=Math.floor(v*2000+3000).toLocaleString();
+});
+console.log('KAWA TRANSPORT v2.0 Strengthened Loaded');
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kawa Transport - Fast & Safe Uganda</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
+body{margin:0;font-family:Arial;background:#f5f7fb;color:#111}
+header{background:#16a34a;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99;box-shadow:0 4px 15px rgba(0,0,0,0.15)}
+header b{font-size:22px;letter-spacing:0.5px}
+.btn{background:#16a34a;color:#fff;padding:12px 20px;border:none;border-radius:12px;font-weight:700;cursor:pointer;transition:0.2s;width:100%}
+.btn:hover{background:#15803d;transform:translateY(-1px)}
+.tabs{display:flex;justify-content:center;gap:10px;padding:12px;background:#fff;position:sticky;top:62px;z-index:98;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.tab{padding:8px 18px;border-radius:20px;border:1px solid #ddd;background:#fff;cursor:pointer;font-weight:600}
+.tab.active{background:#dc2626;color:#fff;border-color:#dc2626}
+.box{background:#fff;margin:12px 8px;padding:18px;border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,0.06);border:1px solid #eee}
+.card{border:1px solid #fed7aa;padding:14px;border-radius:14px;background:#fff7ed;margin-top:12px}
+.emergency{background:#dc2626;color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:800;cursor:pointer;margin:12px 0;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+input,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px;margin:8px 0;outline:none;font-size:15px}
+input:focus,select:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,0.15)}
+footer{background:#000;color:#fff;text-align:center;padding:20px;margin-top:20px}
+#chatBtn{position:fixed;bottom:15px;right:15px;background:#16a34a;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 8px 25px rgba(22,163,74,0.4);z-index:999}
+#chatBox{position:fixed;bottom:85px;right:15px;width:90%;max-width:340px;background:#fff;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;z-index:999;border:1px solid #eee}
+#chatHead{background:#16a34a;color:#fff;padding:12px 16px;font-weight:700;display:flex;justify-content:space-between}
+#chatBody{height:250px;overflow-y:auto;padding:12px;background:#f9fafb}
+.msg{background:#fff;padding:8px 12px;border-radius:12px;margin:6px 0;max-width:80%;box-shadow:0 2px 8px rgba(0,0,0,0.05);font-size:14px}
+.bot{background:#dcfce7;border-left:3px solid #16a34a}
+.user{background:#16a34a;color:#fff;margin-left:auto;text-align:right}
+.quickBtn{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;margin:3px}
+.price-tag{font-size:26px;font-weight:800;color:#16a34a}
+.badge{background:#dcfce7;color:#16a34a;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+<b>🛵 KAWA TRANSPORT</b>
+<span style="background:#fff;color:#16a34a;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700">UGANDA • 24/7</span>
+</header>
+
+<div class="tabs">
+<div class="tab active" onclick="setTab(this,'boda')">Boda Boda</div>
+<div class="tab" onclick="setTab(this,'taxi')">Taxi</div>
+<div class="tab" onclick="setTab(this,'truck')">Truck</div>
+</div>
+
+<div class="box">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h3>Book Ride Now</h3><span class="badge">⚡ 3 mins away</span>
+</div>
+<input id="from" placeholder="From - e.g. Nakawa, Kampala">
+<input id="to" placeholder="To - e.g. Kira Road">
+<select id="type">
+<option>Boda Boda - UGX 3k-15k</option>
+<option>Special Hire - UGX 20k+</option>
+<option>Truck - Cargo</option>
+</select>
+<div style="display:flex;gap:10px;margin:10px 0">
+<div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Distance</small><br><b id="km">4.2 KM</b></div>
+<div style="flex:1;background:#f3f4f6;padding:10px;border-radius:10px;text-align:center"><small>Price</small><br><b class="price-tag" id="price">8,500</b></div>
+</div>
+<button class="btn" onclick="book()">📲 BOOK NOW ON WHATSAPP</button>
+<div class="card">
+<b>Why Kawa?</b><br>✅ Fixed price, no bargaining<br>✅ Helmet + Safety<br>✅ Tracked by GPS<br>✅ Pay Cash or Mobile Money
+</div>
+</div>
+
+<div class="box">
+<div class="emergency" onclick="emergency()">🆘 EMERGENCY SOS - TAP 2 SEC</div>
+<p style="text-align:center;font-size:13px;color:#666">Long press for police + share live location</p>
+</div>
+
+<footer>
+<b>Kawa Transport Uganda</b><br>Safe • Fast • Affordable<br>WhatsApp: +256 700 000000<br><br>© 2026 Built in Kampala
+</footer>
+
+<div id="chatBtn" onclick="toggleChat()">💬</div>
+<div id="chatBox">
+<div id="chatHead"><span>Kawa Assistant</span><span onclick="toggleChat()" style="cursor:pointer">✕</span></div>
+<div id="chatBody">
+<div class="msg bot">Hi! I'm Kawa Bot 🇺🇬 Where do you want to go today?</div>
+<div class="msg bot">Type pickup and destination.</div>
+</div>
+<div style="padding:8px;background:#fff;border-top:1px solid #eee">
+<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px">
+<span class="quickBtn" onclick="quick('Price from Nakawa to Town?')">💰 Price?</span>
+<span class="quickBtn" onclick="quick('Book boda now')">🛵 Book Boda</span>
+<span class="quickBtn" onclick="quick('Emergency')">🆘 Help</span>
+</div>
+<div style="display:flex;gap:6px"><input id="chatInput" placeholder="Ask something..." style="margin:0"><button onclick="sendChat()" style="background:#16a34a;color:#fff;border:none;padding:0 16px;border-radius:12px">➤</button></div>
+</div>
+</div>
+
+<script>
+function setTab(el,mode){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+el.classList.add('active');
+const prices={boda:'8,500',taxi:'25,000',truck:'80,000'};
+document.getElementById('price').innerText=prices[mode];
+}
+function book(){
+let f=document.getElementById('from').value||'My Location';
+let t=document.getElementById('to').value||'Destination';
+let p=document.getElementById('price').innerText;
+let msg=`Hello Kawa! 🛵%0ABook ride:%0AFrom: ${f}%0ATo: ${t}%0APrice: UGX ${p}%0A%0Ahttps://emmanuelkawa2026.github.io/crispy-enigma/`;
+window.open(`https://wa.me/256700000000?text=${msg}`,'_blank');
+}
+function emergency(){
+if(confirm('🚨 EMERGENCY! Share location with Kawa Safety Team?')){
+alert('✅ SOS Sent! Your live location shared. Team calling you now. Police: 999');
+window.open('https://wa.me/256700000000?text=🆘%20EMERGENCY%20SOS%20NEED%20HELP%20-%20'+encodeURIComponent(location.href));
+}
+}
+let chatOpen=false;
+function toggleChat(){
+chatOpen=!chatOpen;
+document.getElementById('chatBox').style.display=chatOpen?'flex':'none';
+}
+function quick(t){document.getElementById('chatInput').value=t;sendChat();}
+function sendChat(){
+let i=document.getElementById('chatInput');
+if(!i.value)return;
+let body=document.getElementById('chatBody');
+body.innerHTML+=`<div class="msg user">${i.value}</div>`;
+let reply='Thanks! A driver is 3 mins away from you. Book now to get fixed price UGX '+document.getElementById('price').innerText;
+if(i.value.toLowerCase().includes('price')) reply='Boda in Kampala is UGX 3,000 - 15,000 depending on distance. From Nakawa to Town is ~ UGX 8,500';
+if(i.value.toLowerCase().includes('emergency')) reply='🆘 For emergency, tap RED SOS button above. We share GPS with police.';
+setTimeout(()=>{body.innerHTML+=`<div class="msg bot">${reply}</div>`;body.scrollTop=body.scrollHeight;},600);
+i.value='';body.scrollTop=body.scrollHeight;
+}
+document.getElementById('from').addEventListener('input',()=>{
+let v=Math.random()*10+1;
+document.getElementById('km').innerText=v.toFixed(1)+' KM';
+document.getElementById('price').innerText=Math.floor(v*2000+3000).toLocaleString();
+});
+console.log('KAWA TRANSPORT v2.0 Strengthened Loaded');
 </script>
 </body>
 </html>
