@@ -1,118 +1,64 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KAWA UGANDA - All Transport</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team Led Earn</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f7fb}
-.container{max-width:500px;margin:0 auto}
-header{background:#111;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
-.logo{font-weight:900;font-size:20px;color:#16a34a}
-.card{background:#fff;margin:12px;border-radius:18px;padding:16px;box-shadow:0 6px 20px #0001}
-.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0}
-.tab{min-width:90px;background:#eee;border-radius:20px;padding:10px 14px;text-align:center;font-weight:800;cursor:pointer;border:2px solid transparent}
-.tab.active{background:#16a34a;color:#fff;border-color:#16a34a}
-input,select{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e5e7eb;border-radius:12px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.vehicle{border:2px solid #eee;border-radius:14px;padding:12px;text-align:center;cursor:pointer}
-.vehicle.active{border-color:#16a34a;background:#f0fdf4}
-.vehicle b{display:block;margin-top:6px}
-.pay-grid{display:flex;gap:10px;margin:12px 0}
-.mtn{background:#ffcc00;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
-.airtel{background:#ff0000;color:#fff;border-radius:12px;flex:1;padding:14px;text-align:center;font-weight:900}
-.btn-green{background:#16a34a;color:#fff;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin:6px 0}
-.btn-yellow{background:#ffcc00;color:#000;width:100%;padding:15px;border:none;border-radius:14px;font-weight:900}
-footer{background:#111;color:#999;padding:20px;text-align:center;font-size:13px;margin-top:20px}
-</style></head>
+body{margin:0;font-family:Arial;background:#eef2ff;text-align:center}
+header{background:#1e3a8a;color:#fff;padding:18px}
+.card{background:#fff;margin:12px;border-radius:14px;padding:16px}
+button{width:94%;padding:14px;border:none;border-radius:30px;font-weight:900;margin:6px;font-size:15px}
+.watch{background:#1e3a8a;color:#fff}
+.share{background:#25D366;color:#fff;display:none}
+#timer{font-size:42px;font-weight:900;color:#1e3a8a}
+.linkbox{background:#f1f5ff;padding:10px;border-radius:10px;word-break:break-all;font-weight:800}
+</style>
+</head>
 <body>
-<div class="container">
-<header><div class="logo">🛵 KAWA TRANSPORT</div><div style="background:#16a34a;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px">LIVE</div></header>
-
+<header><h2>TEAM LED - EARN DATA</h2><small>0792408497</small></header>
 <div class="card">
-<h3>🚚 Choose Transport Type</h3>
-<div class="tabs">
-<div class="tab active" onclick="setType('delivery',this)">🛵 Delivery</div>
-<div class="tab" onclick="setType('garage',this)">🔧 Garage</div>
-<div class="tab" onclick="setType('truck',this)">🚚 Trucks</div>
-<div class="tab" onclick="setType('bus',this)">🚌 Bus/Taxi</div>
+<h3>WATCH 30 SEC TO UNLOCK</h3>
+<div id="timer">30</div>
+<iframe width="100%" height="200" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allowfullscreen></iframe>
+<button class="watch" id="wb" onclick="watch()">▶️ PLAY & WATCH</button>
+<p id="st">Watch full video to get your earning link</p>
 </div>
-
-<div id="deliveryBox">
-<h4 style="margin:12px 0">🛵 Boda Delivery</h4>
-<div class="grid2">
-<div class="vehicle active" onclick="sel(this)"><span style="font-size:30px">🛵</span><b>Boda</b><small>UGX 3k-8k</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">📦</span><b>Express</b><small>UGX 8k-15k</small></div>
-</div>
-</div>
-
-<div id="garageBox" style="display:none">
-<h4 style="margin:12px 0">🔧 Garage Services</h4>
-<div class="grid2">
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🔧</span><b>Repair</b><small>On-site</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🛞</span><b>Towing</b><small>Breakdown</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">⛽</span><b>Fuel Delivery</b><small>Emergency</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🔋</span><b>Battery</b><small>Jump-start</small></div>
-</div>
-</div>
-
-<div id="truckBox" style="display:none">
-<h4 style="margin:12px 0">🚚 Trucks & Lorries</h4>
-<div class="grid2">
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚚</span><b>Small Truck</b><small>1-3 Tons</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚛</span><b>Big Truck</b><small>5-10 Tons</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🏗️</span><b>Tipper</b><small>Sand/Murram</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚜</span><b>Trailer</b><small>Long distance</small></div>
-</div>
-</div>
-
-<div id="busBox" style="display:none">
-<h4 style="margin:12px 0">🚌 Bus & Taxi Booking</h4>
-<div class="grid2">
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚕</span><b>Taxi 14-seater</b><small>Kampala routes</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚌</span><b>Coaster 30-seater</b><small>Upcountry</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">🚐</span><b>Mini-Bus Hire</b><small>Events</small></div>
-<div class="vehicle" onclick="sel(this)"><span style="font-size:30px">✈️</span><b>Airport Shuttle</b><small>Entebbe</small></div>
-</div>
-</div>
-
-</div>
-
 <div class="card">
-<input id="from" placeholder="From - e.g. Nakawa">
-<input id="to" placeholder="To - e.g. Kira Road">
-<input id="phone" placeholder="Your phone">
-<div style="display:flex;gap:10px"><div style="flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center"><small>Price</small><br><b id="price" style="color:#16a34a;font-size:18px">UGX 8,500</b></div><div style="flex:1;background:#f3f4f6;border-radius:12px;padding:12px;text-align:center"><small>Pay to</small><br><b>0792664825</b></div></div>
-<div class="pay-grid"><div class="mtn" onclick="pay('MTN')">MTN MoMo</div><div class="airtel" onclick="pay('Airtel')">Airtel Money</div></div>
-<button class="btn-green" onclick="book()">📲 BOOK ON WHATSAPP - 0792408497</button>
-<button class="btn-yellow" onclick="pay('MTN')">💰 PAY NOW 0792664825</button>
+<h3>YOUR EARNING LINK</h3>
+<div class="linkbox" id="myLink"></div>
+<button class="share" id="sb" onclick="share()">📤 SHARE TO 3 GROUPS</button>
+<p>Clicks: <b id="cnt">0</b> | Earned: <b id="earn">0 MB</b></p>
 </div>
-
-<footer><b style="color:#fff">🛵 KAWA UGANDA TRANSPORT LTD</b><br>Delivery | Garage | Trucks | Bus<br>MoMo: 0792664825 | WhatsApp: 0792408497<br>Kampala - Uganda</footer>
+<div class="card">
+<a href="https://wa.me/256792408497" style="display:block;background:#facc15;color:#000;padding:14px;border-radius:30px;text-decoration:none;font-weight:900">CLAIM - WHATSAPP CEO</a>
 </div>
-
 <script>
-let currentType='delivery';
-function setType(t,el){
-currentType=t;
-document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-el.classList.add('active');
-document.getElementById('deliveryBox').style.display=t=='delivery'?'block':'none';
-document.getElementById('garageBox').style.display=t=='garage'?'block':'none';
-document.getElementById('truckBox').style.display=t=='truck'?'block':'none';
-document.getElementById('busBox').style.display=t=='bus'?'block':'none';
-let prices={delivery:'UGX 8,500',garage:'UGX 25,000',truck:'UGX 120,000',bus:'UGX 45,000'};
-document.getElementById('price').innerText=prices[t];
+let id = localStorage.getItem("earnID") || "KWA"+Math.floor(Math.random()_89999+10000);
+localStorage.setItem("earnID", id);
+let base = location.href.split('?');
+let link = base + "?ref=" + id;
+document.getElementById("myLink").innerText = link;
+let p = new URLSearchParams(location.search);
+let r = p.get("ref");
+if(r && r!=id){
+  let list = JSON.parse(localStorage.getItem("refList")||"[]");
+  if(!list.includes(r)){list.push(r);localStorage.setItem("refList", JSON.stringify(list));}
 }
-function sel(el){el.parentElement.querySelectorAll('.vehicle').forEach(v=>v.classList.remove('active'));el.classList.add('active');}
-function book(){
-let f=document.getElementById('from').value||'Kampala';
-let t=document.getElementById('to').value||'Kira';
-let p=document.getElementById('price').innerText;
-window.open('https://wa.me/256792408497?text=*KAWA '+currentType.toUpperCase()+' BOOKING*%0AFrom:'+f+'%0ATo:'+t+'%0AType:'+currentType+'%0APrice:'+p+'%0APaid to 0792664825','_blank');
+let total = JSON.parse(localStorage.getItem("refList")||"[]").length;
+document.getElementById("cnt").innerText=total;
+document.getElementById("earn").innerText=(total_50)+" MB";
+function watch(){
+ let t=30;
+ let iv=setInterval(()=>{
+   t--;document.getElementById("timer").innerText=t;
+   if(t<=0){clearInterval(iv);document.getElementById("sb").style.display="block";document.getElementById("wb").style.display="none";document.getElementById("timer").innerText="UNLOCKED ✅";}
+ },1000);
 }
-function pay(n){
-let p=document.getElementById('price').innerText;
-alert(n+' Pay '+p+' to 0792664825 - KAWA\nDial '+(n=='MTN'?'*165*3#':'*185*9#'));
-book();
+function share(){
+ let msg = encodeURIComponent("Earn data! Watch: "+link);
+ window.open("https://wa.me/?text="+msg, "_blank");
 }
 </script>
-</body></html>
+</body>
+</html>[0]
