@@ -1,1 +1,85 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team Led Earn</title>
+<style>
+body{margin:0;font-family:Arial;background:#eef2ff;text-align:center}
+header{background:#1e3a8a;color:#fff;padding:18px}
+.card{background:#fff;margin:12px;border-radius:14px;padding:16px}
+button{width:94%;padding:14px;border:none;border-radius:30px;font-weight:900;margin:6px;font-size:15px}
+.watch{background:#1e3a8a;color:#fff}
+.share{background:#25D366;color:#fff;display:none}
+#timer{font-size:42px;font-weight:900;color:#1e3a8a}
+.linkbox{background:#f1f5ff;padding:10px;border-radius:10px;word-break:break-all;font-weight:800}
+</style>
+</head>
+<body>
+<header><h2>TEAM LED - EARN DATA</h2><small>0792408497</small></header>
+
+<div class="card">
+<h3>WATCH 30 SEC TO UNLOCK</h3>
+<div id="timer">30</div>
+<iframe width="100%" height="200" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allowfullscreen></iframe>
+<button class="watch" id="wb" onclick="watch()">▶️ PLAY & WATCH</button>
+<p id="st">Watch full video to get your earning link</p>
+</div>
+
+<div class="card">
+<h3>YOUR EARNING LINK</h3>
+<div class="linkbox" id="myLink"></div>
+<button class="share" id="sb" onclick="share()">📤 SHARE TO 3 GROUPS / FRIENDS</button>
+<p>Clicks: <b id="cnt">0</b> | Data Earned: <b id="earn">0 MB</b></p>
+<p style="font-size:12px">Every friend who watches via your link = 50MB data to you. Money goes to CEO account then converted to data for you.</p>
+</div>
+
+<div class="card">
+<a href="https://wa.me/256792408497?text=MyEarnLink:%20" id="claim" style="display:block;background:#facc15;color:#000;padding:14px;border-radius:30px;text-decoration:none;font-weight:900">CLAIM DATA - WHATSAPP CEO</a>
+</div>
+
+<script>
+let id = localStorage.getItem("earnID") || "KWA"+Math.floor(Math.random()_89999+10000);
+localStorage.setItem("earnID", id);
+let base = location.href.split('?');
+let link = base + "?ref=" + id;
+document.getElementById("myLink").innerText = link;
+document.getElementById("claim").href="https://wa.me/256792408497?text=Claim%20Data%20ID:"+id;[0]
+
+let p = new URLSearchParams(location.search);
+let r = p.get("ref");
+if(r && r!=id){
+  let list = JSON.parse(localStorage.getItem("refList")||"[]");
+  if(!list.includes(r)){
+    list.push(r);
+    localStorage.setItem("refList", JSON.stringify(list));
+  }
+}
+let total = JSON.parse(localStorage.getItem("refList")||"[]").length;
+document.getElementById("cnt").innerText=total;
+document.getElementById("earn").innerText=(total_50)+" MB";
+
+function watch(){
+ let t=30;
+ let iv=setInterval(()=>{
+   t--;
+   document.getElementById("timer").innerText=t;
+   document.getElementById("st").innerText="Watching... "+t+"s";
+   if(t<=0){
+     clearInterval(iv);
+     document.getElementById("sb").style.display="block";
+     document.getElementById("wb").style.display="none";
+     document.getElementById("timer").innerText="UNLOCKED ✅";
+     document.getElementById("st").innerText="Now share your link to earn";
+   }
+ },1000);
+}
+function share(){
+ let msg = encodeURIComponent("Earn free data! Watch and share: "+link);
+ window.open("https://wa.me/?text="+msg, "_blank");
+ alert("Link shared! You get 50MB per friend who watches. Claim on WhatsApp.");
+}
+</script>
+</body>
+</html>
